@@ -18,10 +18,6 @@ namespace EmployeeProcessor.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<EmployeePay>()
-                .HasMany(emp => emp.Employees)
-                .WithOne(emp => emp.EmployeePay);
-
             modelBuilder.Entity<EmployeeResponsibility>()
               .HasMany(emp => emp.Employees)
               .WithOne(emp => emp.EmployeeResponsibility);
@@ -29,7 +25,8 @@ namespace EmployeeProcessor.Data
         }
 
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<EmployeePay> EmployeePays { get; set; }
+        public DbSet<Compensation> Compensations { get; set; }
+        public DbSet<EmployeeCompensation> EmployeeCompensation { get; set; }
         public DbSet<EmployeeResponsibility> EmployeeResponsibilities { get; set; }
     }
 }

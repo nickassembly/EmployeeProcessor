@@ -11,8 +11,7 @@ namespace EmployeeProcessor.Data.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
-
-        public virtual EmployeePay EmployeePay { get; set; }
+        public EmployeeCompensation EmployeeCompensation { get; set; }
         public virtual EmployeeResponsibility EmployeeResponsibility { get; set; }
     }
 }

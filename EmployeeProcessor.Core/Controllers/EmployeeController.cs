@@ -58,12 +58,12 @@ namespace EmployeeProcessor.Core.Controllers
             // TODO: Check Employee Position to determine if Supervisor, set pay salary
             // If Manager, set max expense amount
 
-            EmployeePay payObj = new();
+            Compensation payObj = new();
             EmployeeResponsibility responsibilities = new();
 
             _context.Employees.Add(employeeToAdd);
             _context.EmployeeResponsibilities.Add(responsibilities);
-            _context.EmployeePays.Add(payObj);
+            _context.Compensations.Add(payObj);
             _context.SaveChanges();
 
             return Ok(employeeToAdd);

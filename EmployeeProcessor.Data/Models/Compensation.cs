@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace EmployeeProcessor.Data.Models
 {
-    public class EmployeePay 
+    public class Compensation 
     {
-        // 1 to Many Relationship with Employee (Many Pays for 1 Employee)
         [Key]
         public int Id { get; set; }
         public EmployeePayType PayType { get; set; }
         public decimal? AnnualSalaryAmount { get; set; }
         public decimal? PayPerHourAmount { get; set; }
-
-        public ICollection<Employee> Employees { get; set; }
+        public EmployeeCompensation EmployeeCompensation { get; set; }
     }
 }
