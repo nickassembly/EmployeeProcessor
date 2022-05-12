@@ -14,6 +14,7 @@ namespace EmployeeProcessor.Data.Models
         public EmployeePayType PayType { get; set; }
         public decimal? AnnualSalaryAmount { get; set; }
         public decimal? PayPerHourAmount { get; set; }
-        public EmployeeCompensation EmployeeCompensation { get; set; }
+
+        public ICollection<Employee> Employees { get; set; }
     }
 }

@@ -26,7 +26,6 @@ namespace EmployeeProcessor.Data
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Compensation> Compensations { get; set; }
-        public DbSet<EmployeeCompensation> EmployeeCompensation { get; set; }
         public DbSet<EmployeeResponsibility> EmployeeResponsibilities { get; set; }
     }
 }
