@@ -7,23 +7,27 @@ namespace EmployeeProcessor.Core.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class EmployeeController : ControllerBase, IEmployeeRepository
+    public class EmployeeController : ControllerBase
     {
         private readonly EmployeeProcessorDbContext _context;
-        public EmployeeController(EmployeeProcessorDbContext context)
+        private readonly IEmployeeRepository _employeeRepo;
+        public EmployeeController(EmployeeProcessorDbContext context, IEmployeeRepository employeeRepo)
         {
             _context = context;
+            _employeeRepo = employeeRepo;
         }
 
         [HttpGet]
         public List<Employee> GetAllEmployees()
         {
+            // TODO: Abstract using EmployeeRepo instead
+
+            _employeeRepo.GetAllEmployees();
             List<Employee> employeesToReturn = new();
 
             try
             {
                 var employees = _context.Employees.ToList();
-                // TODO: join with compensations table and responsibilities table to improve performance
 
                 foreach (var employee in employees)
                 {
@@ -88,6 +92,7 @@ namespace EmployeeProcessor.Core.Controllers
     // Employee Repo
     public interface IEmployeeRepository
     {
+        List<Employee> GetAllEmployees();
         ActionResult AddNewEmployee(Employee employee);
     }
 }
